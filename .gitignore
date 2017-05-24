@@ -1,0 +1,6 @@
+wallet-web/.editorconfig
+.metadata/
+Servers/
+wallet-backend/wallet-parent/.classpath
+wallet-backend/wallet-parent/.settings/
+wallet-backend/wallet-parent/target/
