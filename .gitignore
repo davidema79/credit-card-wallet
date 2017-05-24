@@ -12,3 +12,4 @@ wallet-backend/wallet-parent/wallet-security/target/
 wallet-backend/wallet-parent/wallet-persistence/.settings/
 wallet-backend/wallet-parent/wallet-persistence/target/
 .recommenders/
+wallet-backend/wallet-parent/wallet-persistence/.factorypath

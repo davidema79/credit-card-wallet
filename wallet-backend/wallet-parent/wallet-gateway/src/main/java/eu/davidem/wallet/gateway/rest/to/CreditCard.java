@@ -18,24 +18,27 @@ public class CreditCard {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public CreditCard setId(Long id)  {
 		this.id = id;
+		return this;
 	}
 
 	public String getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(String cardNumber) {
+	public CreditCard setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
+		return this;
 	}
 
 	public String getDateExp() {
 		return dateExp;
 	}
 
-	public void setDateExp(String dateExp) {
+	public CreditCard setDateExp(String dateExp) {
 		this.dateExp = dateExp;
+		return this;
 	}
 	
 	

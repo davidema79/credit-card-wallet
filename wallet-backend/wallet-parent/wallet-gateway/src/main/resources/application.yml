@@ -10,6 +10,4 @@ spring:
     username: root
     password: 1qaz!QAZ
     url: jdbc:mysql://localhost:3306/ewallet
-
-      
-  
+    driver-class-name: com.mysql.jdbc.Driver  
