@@ -29,6 +29,7 @@
 	<modules>
 		<module>wallet-security</module>
 		<module>wallet-gateway</module>
+		<module>wallet-persistence</module>
 	</modules>
 
 
@@ -53,6 +54,17 @@
 				<version>3.5</version>
 			</dependency>
 
+			<dependency>
+				<groupId>eu.davidem.wallet</groupId>
+				<artifactId>wallet-security</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>eu.davidem.wallet</groupId>
+				<artifactId>wallet-persistence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
