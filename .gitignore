@@ -4,3 +4,8 @@ Servers/
 wallet-backend/wallet-parent/.classpath
 wallet-backend/wallet-parent/.settings/
 wallet-backend/wallet-parent/target/
+*.classpath
+wallet-backend/wallet-parent/wallet-gateway/.settings/
+wallet-backend/wallet-parent/wallet-security/.settings/
+wallet-backend/wallet-parent/wallet-gateway/target/
+wallet-backend/wallet-parent/wallet-security/target/
