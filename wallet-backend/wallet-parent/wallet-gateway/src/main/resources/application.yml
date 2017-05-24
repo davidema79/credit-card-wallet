@@ -6,3 +6,10 @@ spring:
   application:
     name: eWallet
   
+  datasource:
+    username: root
+    password: 1qaz!QAZ
+    url: jdbc:mysql://localhost:3306/ewallet
+
+      
+  
