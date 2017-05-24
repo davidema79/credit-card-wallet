@@ -1,7 +1,5 @@
 package eu.davidem.wallet.gateway.rest.to;
 
-import javax.persistence.Column;
-
 /**
  * Transporter Object for Credit Card
  * 
