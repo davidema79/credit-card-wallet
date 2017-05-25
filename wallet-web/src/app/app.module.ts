@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import {AuthGuardService} from "./guards/auth-guard.service";
 import {AuthenticationService} from "./auth/authentication.service";
 import {MyLocalStorageService} from "./auth/my-local-storage.service";
+import {CreditCardsService} from "./credit-cards-list/credit-cards.service";
+import { CreditCardDisplayPipe } from './credit-cards-list/credit-card-display.pipe';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,8 @@ import {MyLocalStorageService} from "./auth/my-local-storage.service";
         CreditCardsListComponent,
         CreditCardDetailsComponent,
         SignupComponent,
-        HomeComponent
+        HomeComponent,
+        CreditCardDisplayPipe
     ],
     imports: [
         BrowserModule,
@@ -35,6 +38,7 @@ import {MyLocalStorageService} from "./auth/my-local-storage.service";
         AuthGuardService,
         AuthenticationService,
         MyLocalStorageService,
+        CreditCardsService,
         CookieService
     ],
     bootstrap: [AppComponent]

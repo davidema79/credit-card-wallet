@@ -31,8 +31,13 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngOnDestroy(): void {
+    this.closeModal();
+  }
+
+  private closeModal() {
     $('#login_modal').hide();
-    // $('.modal-backdrop').remove();
+    $('.modal-backdrop').remove();
+
   }
 
   resetError(): void {
@@ -44,6 +49,7 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
       data => {
         console.info("User logged in:", data.username);
         this.error = false;
+        this.closeModal();
         this._router.navigate(['/']);
       },
       error => {

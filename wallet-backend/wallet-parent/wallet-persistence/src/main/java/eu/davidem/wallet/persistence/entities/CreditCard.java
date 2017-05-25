@@ -29,14 +29,18 @@ public class CreditCard {
 	
 	@Column(name="user_id")
 	private Long userId;
+	
+	@Column(name="name_holder")
+	private String nameHolder;
 
 	public CreditCard() {
 	}
 	
-	public CreditCard(final String cardNumber, final String dateExp, final Long userId) {
+	public CreditCard(final String cardNumber, final String dateExp, final Long userId, final String nameHolder) {
 		this.cardNumber = cardNumber;
 		this.dateExp = dateExp;
 		this.userId = userId;
+		this.nameHolder = nameHolder;
 	}
 
 	public Long getId() {
@@ -69,6 +73,14 @@ public class CreditCard {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public String getNameHolder() {
+		return nameHolder;
+	}
+
+	public void setNameHolder(String nameHolder) {
+		this.nameHolder = nameHolder;
 	}
 	
 	

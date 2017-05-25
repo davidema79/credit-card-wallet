@@ -13,6 +13,8 @@ public class CreditCard {
 	private String cardNumber;
 
 	private String dateExp;
+	
+	private String nameHolder;
 
 	public Long getId() {
 		return id;
@@ -38,6 +40,15 @@ public class CreditCard {
 
 	public CreditCard setDateExp(String dateExp) {
 		this.dateExp = dateExp;
+		return this;
+	}
+
+	public String getNameHolder() {
+		return nameHolder;
+	}
+
+	public CreditCard setNameHolder(String nameHolder) {
+		this.nameHolder = nameHolder;
 		return this;
 	}
 	

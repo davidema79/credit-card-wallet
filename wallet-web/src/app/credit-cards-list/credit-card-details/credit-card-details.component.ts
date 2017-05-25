@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CreditCard} from "../credit-card.model";
 
 @Component({
   selector: 'app-credit-card-details',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./credit-card-details.component.css']
 })
 export class CreditCardDetailsComponent implements OnInit {
+
+  @Input('creditCard') creditCard: CreditCard;
+
+  @Output('onModify') creditCardEmitter = new EventEmitter<CreditCard>();
 
   constructor() { }
 

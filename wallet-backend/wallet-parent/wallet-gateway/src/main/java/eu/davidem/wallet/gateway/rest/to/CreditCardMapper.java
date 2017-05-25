@@ -16,7 +16,8 @@ public final class CreditCardMapper {
 		return new CreditCard()
 				.setCardNumber(entity.getCardNumber())
 				.setDateExp(entity.getDateExp())
-				.setId(entity.getId());
+				.setId(entity.getId())
+				.setNameHolder(entity.getNameHolder());
 	}
 	
 }

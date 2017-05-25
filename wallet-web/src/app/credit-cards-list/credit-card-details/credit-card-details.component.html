@@ -1,3 +1,17 @@
-<p>
-  credit-card-details works!
-</p>
+<div class="row align-items-center">
+  <div class="col-4">
+    {{ creditCard.nameHolder | uppercase }}
+  </div>
+  <div class="col-4">
+    {{ creditCard.cardNumber | creditCardDisplay }}
+  </div>
+  <div class="col-1">
+    {{ creditCard.dateExp }}
+  </div>
+  <div class="col-1">
+    <button class="btn btn-outline-info"><i class="fa fa-pencil"></i></button>
+  </div>
+  <div class="col-1">
+    <button class="btn btn-outline-danger"><i class="fa fa-minus"></i></button>
+  </div>
+</div>
