@@ -18,7 +18,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Role role;
+	private String role;
 	private String username;
 	private String password;
 
@@ -27,7 +27,7 @@ public class User {
 	}
 	
 	public User(Role role, String username, String password) {
-		this.role = role;
+		this.role = role.name();
 		this.username = username;
 		this.password = password;
 	}
@@ -40,12 +40,12 @@ public class User {
 		this.id = id;
 	}
 
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
 	public void setRole(Role role) {
-		this.role = role;
+		this.role = role.name();
 	}
 
 	public String getUsername() {
