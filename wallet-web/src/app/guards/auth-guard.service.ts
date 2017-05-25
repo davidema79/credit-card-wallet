@@ -1,5 +1,4 @@
 import {CanActivate, Router} from "@angular/router";
-import {LottoLocalStorageService} from "../../../../../Workspace/vexios/bidlotto-web/src/app/shared/lotto-localstorage.service";
 import {Injectable} from "@angular/core";
 import {MyLocalStorageService} from "../auth/my-local-storage.service";
 /**

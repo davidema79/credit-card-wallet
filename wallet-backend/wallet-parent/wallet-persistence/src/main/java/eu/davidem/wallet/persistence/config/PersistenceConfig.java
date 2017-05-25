@@ -11,9 +11,11 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import eu.davidem.wallet.persistence.CreditCardPersistenceService;
+import eu.davidem.wallet.persistence.UserPersistenceService;
 import eu.davidem.wallet.persistence.entities.CreditCard;
 import eu.davidem.wallet.persistence.repos.UsersRepository;
 
@@ -32,6 +34,19 @@ public class PersistenceConfig {
 	public CreditCardPersistenceService cardPersistenceService() {
 		return new CreditCardPersistenceService();
 	}
+	
+	
+	@Bean
+	public UserPersistenceService userPersistenceService() {
+		return new UserPersistenceService();
+	}
+	
+	//TODO: Remove
+	@Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+	
 	
 	@Primary
 	@Bean

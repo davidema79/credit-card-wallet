@@ -1,36 +1,45 @@
 <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <span class="fa fa-lock"></span>
-                    Login
-                </h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          <span class="fa fa-lock"></span>
+          Login
+        </h5>
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="form-control-label">Username: </label>
-                        <input type="text" class="form-control" id="recipient-name" [(ngModel)]="username"
-                               name="username" placeholder="Insert your username">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd-text" class="form-control-label">Password:</label>
-                        <input type="password" class="form-control" id="pwd-text" [(ngModel)]="password" name="password"
-                               placeholder="Insert your password">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-outline-primary">SignUp</button>
-            </div>
-        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" routerLink="/"
+                routerLinkActive="active-link">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div *ngIf="error" class="alert alert-danger">
+            <p>Username or Password not correct. <br>Please try again.</p>
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user prefix"></i></span>
+            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="username" (keypress)="resetError()"
+                   name="username" placeholder="Insert your username">
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock prefix"></i></span>
+            <input type="password" class="form-control" id="pwd-text" [(ngModel)]="password" name="password" (keypress)="resetError()"
+                   placeholder="Insert your password">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal" routerLink="/signup"
+                routerLinkActive="active-link">SignUp
+        </button>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 7070
   context-path: /
 
 spring:
@@ -10,4 +10,10 @@ spring:
     username: root
     password: 1qaz!QAZ
     url: jdbc:mysql://localhost:3306/ewallet
-    driver-class-name: com.mysql.jdbc.Driver  
+    driver-class-name: com.mysql.jdbc.Driver
+    
+  jpa:
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    
