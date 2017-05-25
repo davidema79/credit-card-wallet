@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import eu.davidem.wallet.gateway.rest.to.SignUpUser;
-import eu.davidem.wallet.persistence.UserPersistenceService;
 import eu.davidem.wallet.persistence.entities.User;
+import eu.davidem.wallet.services.UserPersistenceService;
 
 /**
  * Rest Controller for user-wide operations

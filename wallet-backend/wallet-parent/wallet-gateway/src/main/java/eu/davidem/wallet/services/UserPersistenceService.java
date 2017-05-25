@@ -1,4 +1,4 @@
-package eu.davidem.wallet.persistence;
+package eu.davidem.wallet.services;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 
