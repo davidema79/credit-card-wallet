@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eu.davidem.wallet.gateway.rest.to.CreditCard;
 import eu.davidem.wallet.gateway.rest.to.CreditCardMapper;
-import eu.davidem.wallet.persistence.CreditCardPersistenceService;
+import eu.davidem.wallet.services.CreditCardPersistenceService;
 
 /**
  * REST Controller for Credit Cards operations

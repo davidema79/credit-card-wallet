@@ -1,4 +1,4 @@
-package eu.davidem.wallet.gateway;
+package eu.davidem.wallet;
 
 
 import org.slf4j.Logger;
@@ -7,7 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-import eu.davidem.wallet.gateway.config.ApplicationConfig;
+import eu.davidem.wallet.config.ApplicationConfig;
+
 
 @SpringBootApplication
 @Import({ApplicationConfig.class})
