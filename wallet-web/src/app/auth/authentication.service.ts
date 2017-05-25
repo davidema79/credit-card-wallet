@@ -48,7 +48,7 @@ export class AuthenticationService {
   }
 
   public signUp(userDetails: SignUpUser): Observable<UserDetails> {
-    const urlSignup = environment.BACKEND_URL + "api/users/signup";
+    const urlSignup = environment.BACKEND_URL + "signup";
 
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');

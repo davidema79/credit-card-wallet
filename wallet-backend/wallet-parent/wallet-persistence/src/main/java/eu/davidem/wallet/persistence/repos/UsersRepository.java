@@ -1,5 +1,7 @@
 package eu.davidem.wallet.persistence.repos;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +15,6 @@ import eu.davidem.wallet.persistence.entities.User;
 @Transactional
 public interface UsersRepository extends JpaRepository<User, Long>{
 
-	User findOneByUsername(final String username);
+	Optional<User> findOneByUsername(final String username);
 	
 }
