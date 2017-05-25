@@ -14,17 +14,17 @@ const ROUTES: Routes = [
         component: HomeComponent
     },
     {
-        path: '/login',
+        path: 'login',
         pathMatch: 'full',
         component: LoginComponent
     },
     {
-        path: '/signup',
+        path: 'signup',
         pathMatch: 'full',
         component: SignupComponent
     },
     {
-        path: '/credit-cards',
+        path: 'credit-cards',
         pathMatch: 'full',
         component: CreditCardsListComponent,
         canActivate: [AuthGuardService]

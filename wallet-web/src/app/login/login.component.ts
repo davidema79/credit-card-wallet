@@ -9,6 +9,9 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  public username: string;
+  public password: string;
+
   constructor() { }
 
   ngOnInit() {

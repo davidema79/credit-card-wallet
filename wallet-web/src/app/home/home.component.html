@@ -1,3 +1,24 @@
-<p>
-  home works!
-</p>
+<div class="jumbotron">
+
+  <div *ngIf="!isLoggedIn">
+    <h1 class="display-3">Hello!</h1>
+    <p class="lead">You are not logged in.</p>
+    <hr class="my-4">
+    <p>To use the power of our service and get access to your wallet you need to login, or subscribe.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" role="button" routerLink="/login" routerLinkActive="active-link">Login</a>
+    </p>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <h1 class="display-3">Hello {{ userDetail.username }}!</h1>
+    <p class="lead">You are logged in.</p>
+    <hr class="my-4">
+    <p>Now you can use the power of our service and get access to your wallet.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" role="button" (click)="OnOpenWallets()">Go to Wallet</a>
+    </p>
+
+  </div>
+
+</div>

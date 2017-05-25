@@ -17,7 +17,7 @@ export class  AuthGuardService implements CanActivate {
   }
 
   canActivate(): boolean {
-    if (this._store._getCurrentUser() !== null) {
+    if (this._store.getCurrentUser() !== null) {
       return true;
     }
 
