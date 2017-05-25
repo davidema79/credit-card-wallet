@@ -22,8 +22,6 @@ export class SignupComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public signupForm: FormGroup;
 
-  private _signupUser: SignUpUser;
-
   public error = false;
   public errorMessage = "";
 
@@ -37,11 +35,10 @@ export class SignupComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private initForm() {
-    this._signupUser = new SignUpUser();
-    this.signupForm = this._formBuilder.group({
-      'username': [this._signupUser.username, Validators.compose([Validators.required, Validators.minLength(this.MIN_USR_LENGHT),
+   this.signupForm = this._formBuilder.group({
+      'username': ['', Validators.compose([Validators.required, Validators.minLength(this.MIN_USR_LENGHT),
         Validators.maxLength(this.MAX_USR_LENGHT)])],
-      'password': [this._signupUser.password, Validators.compose([Validators.required, Validators.minLength(this.MIN_PWD_LENGHT),
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(this.MIN_PWD_LENGHT),
         Validators.maxLength(this.MAX_PWD_LENGHT)])]
     });
   }
@@ -67,20 +64,39 @@ export class SignupComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.closeModal();
+  }
+
+  private closeModal() {
     $('#signup_modal').hide();
-    // $('.modal-backdrop').remove();
+    $('.modal-backdrop').remove();
   }
 
 
   public onSignUp() {
-    this._authService.signUp(this._signupUser).subscribe(
+    const signupUser = new SignUpUser();
+    signupUser.username = this.signupForm.controls['username'].value;
+    signupUser.password = this.signupForm.controls['password'].value;
+
+    this._authService.signUp(signupUser).subscribe(
       data => {
         this.error = false;
-        this._router.navigate(['/']);
+        this._authService.login(signupUser.username, signupUser.password).subscribe(
+          data2 => {
+            this.closeModal();
+            this._router.navigate(['/']);
+          },
+          error2 => {
+            this.closeModal();
+            this._router.navigate(['/']);
+          }
+        );
+
+
       },
       error => {
         this.error = true;
-        this.errorMessage = error.json();
+        this.errorMessage = error._body;
       }
     );
   }

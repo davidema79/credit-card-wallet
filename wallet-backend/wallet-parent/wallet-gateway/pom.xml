@@ -12,10 +12,10 @@
 	<dependencies>
 
 		<!-- Modules -->
-		<dependency>
-			<groupId>eu.davidem.wallet</groupId>
-			<artifactId>wallet-security</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>eu.davidem.wallet</groupId> -->
+<!-- 			<artifactId>wallet-security</artifactId> -->
+<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>eu.davidem.wallet</groupId>

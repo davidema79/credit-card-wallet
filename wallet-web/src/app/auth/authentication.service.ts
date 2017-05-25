@@ -48,7 +48,7 @@ export class AuthenticationService {
   }
 
   public signUp(userDetails: SignUpUser): Observable<UserDetails> {
-    const urlSignup = environment.BACKEND_URL + "singup";
+    const urlSignup = environment.BACKEND_URL + "api/users/signup";
 
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
@@ -60,12 +60,7 @@ export class AuthenticationService {
     return this._http.post(urlSignup, userDetails, args)
       .map( res => {
         return res.json() as UserDetails;
-      })
-      .do(
-        data => {
-          return this.login(userDetails.username, userDetails.password);
-        }
-      );
+      });
   }
 
   public isLoggedIn(): boolean {
