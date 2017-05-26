@@ -1,7 +1,5 @@
 package eu.davidem.wallet.services;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +13,7 @@ import eu.davidem.wallet.persistence.exceptions.UsernameAlredyExistsException;
 import eu.davidem.wallet.persistence.repos.UsersRepository;
 
 /**
+ * Persistence Service for Users
  * 
  * @author Davide Martorana
  *
@@ -30,6 +29,16 @@ public class UserPersistenceService {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	/**
+	 * Add a new user in the System. The given password is encrypted and then
+	 * persisted.
+	 * 
+	 * @param username
+	 *            - username provided
+	 * @param password
+	 *            - password provided
+	 * @return the persisted {@link User}
+	 */
 	public User addUser(final String username, final String password) {
 		final User user = new User();
 		user.setUsername(username);
