@@ -4,9 +4,10 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * Wallet version of UseeDetails
+ * Wallet version of {@link UserDetails}
  * 
  * @author Davide Martorana
  *

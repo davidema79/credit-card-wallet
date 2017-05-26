@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import eu.davidem.wallet.persistence.entities.User;
 
 /**
+ * Repository for the {@link User}
  * 
  * @author Davide Martorana
  *

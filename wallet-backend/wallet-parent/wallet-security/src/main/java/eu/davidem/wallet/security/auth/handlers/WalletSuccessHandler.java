@@ -14,22 +14,21 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
+ * Redirection in case of Authentication Success.
  * 
  * @author Davide Martorana
  *
  */
 public class WalletSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-    @Autowired
-    private ObjectMapper mapper;
+	@Autowired
+	private ObjectMapper mapper;
 
-    @Override
-    public void onAuthenticationSuccess(final HttpServletRequest request,
-                                        final HttpServletResponse response,
-                                        final Authentication authentication) throws IOException, ServletException {
-        final UserDetails userDetails = (UserDetails)authentication.getPrincipal();
+	@Override
+	public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response,
+			final Authentication authentication) throws IOException, ServletException {
+		final UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-        response.getWriter().write(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(userDetails));
-    }
+		response.getWriter().write(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(userDetails));
+	}
 }
-

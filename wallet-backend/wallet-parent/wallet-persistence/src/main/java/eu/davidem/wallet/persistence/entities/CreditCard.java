@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
+ * Entity managed by Hiberante to store the data
  * 
  * @author Davide Martorana
  *

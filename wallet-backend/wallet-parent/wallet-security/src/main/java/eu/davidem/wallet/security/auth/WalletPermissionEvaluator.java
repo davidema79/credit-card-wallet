@@ -11,7 +11,7 @@ import eu.davidem.wallet.persistence.entities.CreditCard;
 import eu.davidem.wallet.persistence.repos.CreditCardsRepository;
 
 /**
- * Permission Evaluator for the Wallet
+ * Permission Evaluator for the Wallet. It evaluates only for "CREDIT_CARD".
  * 
  * @author Davide Martorana
  *
