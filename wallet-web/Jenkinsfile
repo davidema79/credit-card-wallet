@@ -1,0 +1,70 @@
+pipeline {
+  //The agent ensures that the source repository is checked out and made available for steps in the subsequent stages
+  agent any
+
+  environment {
+    DOCKER_VERSION = 'TEST-1.0.0'
+  }
+
+  tools {
+    nodejs 'NodeJS (7.2.0) with AngularCLI'
+  }
+
+  stages {
+    stage('Preparing enviroment') {
+      steps {
+        sh 'node -v'
+        sh 'npm -v'
+        sh 'npm install'
+      }
+    }
+    stage('Build') {
+      steps {
+        echo 'Building'
+        sh 'ng build --prod'
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing'
+        sh 'ng test --prod --watch=false'
+      }
+    }
+    stage('Build Docker Images'){
+      when{
+        expression {
+          return  BRANCH_NAME == 'staging'
+        }
+      }
+      steps {
+        sh "docker build -t nexus.vexios.mla.local:18079/lotto/lotto-web:${env.DOCKER_VERSION} -t nexus.vexios.mla.local:18079/lotto/lotto-web:latest ."
+
+        sh 'docker push nexus.vexios.mla.local:18079/lotto/lotto-web'
+
+        sh 'docker rmi -f nexus.vexios.mla.local:18079/lotto/lotto-web'
+        sh 'docker rmi $(docker images nexus.vexios.mla.local:18079/lotto/lotto-web -q)'
+      }
+    }
+  }
+  post {
+    always {
+      echo 'prune and cleanup'
+      sh 'rm node_modules -rf'
+    }
+
+    success {
+      mail body: 'project build successful',
+        from: 'davide.martorana@vexios.com',
+        replyTo: 'davide.martorana@vexios.com',
+        subject: 'The Pipeline successful',
+        to: 'adam.darmanin@vexios.com'
+    }
+    failure {
+      mail body: "project build error is here: ${env.BUILD_URL}" ,
+        from: 'davide.martorana@vexios.com',
+        replyTo: 'davide.martorana@vexios.com',
+        subject: 'The Pipeline failed',
+        to: 'adam.darmanin@vexios.com'
+    }
+  }
+}
