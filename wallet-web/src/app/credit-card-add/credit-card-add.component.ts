@@ -52,11 +52,11 @@ export class CreditCardAddComponent implements OnInit {
         this.initForm();
         this.error = false;
         this.errorMessage = "";
-        this._route.navigate(['/credid-cards']);
+        this._route.navigate(['/credit-cards']);
       },
       error2 => {
         this.error = true;
-        this.errorMessage = error2.toString();
+        this.errorMessage = error2._body;
       }
     );
   }

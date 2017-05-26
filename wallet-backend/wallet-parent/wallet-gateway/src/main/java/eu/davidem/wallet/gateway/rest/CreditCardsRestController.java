@@ -82,9 +82,10 @@ public class CreditCardsRestController {
 	 * 
 	 * @param cc
 	 */
-	@PreAuthorize("hasPermission(#creditCard.id, 'CREDIT_CARD')")
+	@PreAuthorize("#creditCard.id == null OR hasPermission(#creditCard.id, 'CREDIT_CARD')")
 	@PostMapping("/save")
 	public CreditCard save(@RequestBody final CreditCard creditCard) {
 		return CreditCardMapper.mapToRestTO(this.cardPersistenceService.save(creditCard));
 	}
+	
 }

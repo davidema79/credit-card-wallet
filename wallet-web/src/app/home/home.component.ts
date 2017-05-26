@@ -32,4 +32,8 @@ export class HomeComponent implements OnInit {
     this._router.navigate(['/credit-cards']);
   }
 
+  public OnOpenSearch(): void {
+    this._router.navigate(['/credit-cards/search']);
+  }
+
 }
