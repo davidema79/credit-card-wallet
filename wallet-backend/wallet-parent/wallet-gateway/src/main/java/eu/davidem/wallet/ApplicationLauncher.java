@@ -9,7 +9,13 @@ import org.springframework.context.annotation.Import;
 
 import eu.davidem.wallet.config.ApplicationConfig;
 
-
+/**
+ * Application Starter. 
+ * 
+ * 
+ * @author Davide Martorana
+ *
+ */
 @SpringBootApplication
 @Import({ApplicationConfig.class})
 public class ApplicationLauncher {

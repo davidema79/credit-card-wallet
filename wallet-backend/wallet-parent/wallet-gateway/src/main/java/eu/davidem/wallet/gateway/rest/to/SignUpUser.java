@@ -1,6 +1,7 @@
 package eu.davidem.wallet.gateway.rest.to;
 
 /**
+ * Body Request for Sing up operation.
  * 
  * @author Davide Martorana
  *
