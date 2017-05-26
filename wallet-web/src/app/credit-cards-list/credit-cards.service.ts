@@ -26,4 +26,18 @@ export class CreditCardsService {
     });
   }
 
+  public save(creditCard: CreditCard): Observable<CreditCard> {
+    const headers = new Headers();
+    headers.set('Content-Type', 'application/json');
+
+    const args = new RequestOptions();
+    args.headers = headers;
+    args.withCredentials = true;
+
+    return this._http.post(this.urlApi, creditCard, args).map(
+        data => {
+          return data.json() as CreditCard;
+        });
+  }
+
 }

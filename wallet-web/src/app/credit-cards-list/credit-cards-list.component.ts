@@ -14,12 +14,18 @@ export class CreditCardsListComponent implements OnInit {
   constructor(private _creditCardService: CreditCardsService) { }
 
   ngOnInit() {
-    this._creditCardService.getList()
-      .subscribe(
-        data => {
-          this.creditCardList = data;
-        }
-      );
+    this.loadCreditCards();
   }
+
+  public loadCreditCards() {
+    this._creditCardService.getList()
+        .subscribe(
+            data => {
+              this.creditCardList = data;
+            }
+        );
+
+  }
+
 
 }

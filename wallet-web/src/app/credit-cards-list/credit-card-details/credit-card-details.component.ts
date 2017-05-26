@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CreditCard} from "../credit-card.model";
+import {CreditCardsService} from "../credit-cards.service";
 
 @Component({
   selector: 'app-credit-card-details',
@@ -10,11 +11,28 @@ export class CreditCardDetailsComponent implements OnInit {
 
   @Input('creditCard') creditCard: CreditCard;
 
-  @Output('onModify') creditCardEmitter = new EventEmitter<CreditCard>();
+  @Output('editCreditCard') creditCardEmitter = new EventEmitter<CreditCard>();
 
-  constructor() { }
+  public editMode: boolean;
+
+  constructor(private _creditCardService: CreditCardsService) { }
 
   ngOnInit() {
+    this.editMode = false;
   }
 
+  editCreditCard() {
+    this.editMode = true;
+  }
+
+  saveCreditCard() {
+    this._creditCardService.save(this.creditCard)
+        .subscribe(
+            data => {
+              this.editMode = false;
+              this.creditCardEmitter.emit(this.creditCard);
+              this.creditCard = data;
+            }
+        );
+  }
 }

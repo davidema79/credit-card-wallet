@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
+import {CustomFormsModule} from 'ng2-validation';
 import {CookieService} from 'ngx-cookie-service';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
@@ -16,6 +17,7 @@ import {AuthenticationService} from "./auth/authentication.service";
 import {MyLocalStorageService} from "./auth/my-local-storage.service";
 import {CreditCardsService} from "./credit-cards-list/credit-cards.service";
 import { CreditCardDisplayPipe } from './credit-cards-list/credit-card-display.pipe';
+import { CreditCardAddComponent } from './credit-card-add/credit-card-add.component';
 
 @NgModule({
     declarations: [
@@ -25,12 +27,14 @@ import { CreditCardDisplayPipe } from './credit-cards-list/credit-card-display.p
         CreditCardDetailsComponent,
         SignupComponent,
         HomeComponent,
-        CreditCardDisplayPipe
+        CreditCardDisplayPipe,
+        CreditCardAddComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
+        CustomFormsModule,
         HttpModule,
         ROUTER_MODULE
     ],

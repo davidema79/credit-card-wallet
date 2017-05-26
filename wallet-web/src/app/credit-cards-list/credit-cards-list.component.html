@@ -9,17 +9,18 @@
 
     <div class="card-block">
       <div *ngFor="let creditItem of creditCardList">
-        <app-credit-card-details [creditCard]="creditItem"></app-credit-card-details>
+        <app-credit-card-details [creditCard]="creditItem" (editCreditCard)="loadCreditCards()"></app-credit-card-details>
       </div>
     </div>
     <div class="card-footer">
       <div class="row align-items-end justify-content-end">
-
-        <button class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
-
+        <a class="btn btn-primary" routerLink="/credit-cards/add" routerLinkActive="active-link">
+          <i class="fa fa-plus"></i> Add
+        </a>
       </div>
     </div>
   </div>
 </div>
+
 
 
