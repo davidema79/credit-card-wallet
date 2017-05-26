@@ -1,7 +1,7 @@
 package eu.davidem.wallet.security.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import eu.davidem.wallet.security.auth.WalletPermissionEvaluator;
 import eu.davidem.wallet.security.auth.handlers.NoneRedirectStrategy;
 import eu.davidem.wallet.security.auth.handlers.WalletSuccessHandler;
 import eu.davidem.wallet.security.auth.services.UserDetailsPersistenceService;
@@ -32,13 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
-	@Override
-	protected AuthenticationManager authenticationManager() throws Exception {
-		// TODO Auto-generated method stub
-		return super.authenticationManager();
+	
+	@Bean
+	public PermissionEvaluator walletPermissionEvaluator() {
+		return new WalletPermissionEvaluator();
 	}
-
+	
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception {
 		//@formatter:off

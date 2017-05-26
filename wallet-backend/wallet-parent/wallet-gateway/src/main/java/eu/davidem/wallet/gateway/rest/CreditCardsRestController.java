@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,7 @@ public class CreditCardsRestController {
 	 *            - id of the wanted credit card.
 	 * 
 	 */
+	@PreAuthorize("hasPermission(#id, 'CREDIT_CARD', 'READ')")
 	@GetMapping("/{id}")
 	public String getOneById(@PathVariable("id") long id) {
 		return "getOneById: " + id;
@@ -56,6 +58,7 @@ public class CreditCardsRestController {
 	 * 
 	 * @param cc
 	 */
+	@PreAuthorize("hasPermission(#cc.id, 'CREDIT_CARD', 'SAVE')")
 	@PostMapping("/save")
 	public String save(@RequestBody long cc) {
 //		CreditCardValidator.VISA;
