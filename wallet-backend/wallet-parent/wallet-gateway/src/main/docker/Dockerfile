@@ -1,15 +1,15 @@
 FROM java:8u111-jre 
 # Create a directory where our app will be placed
-RUN mkdir -p /home/vexiosci
+RUN mkdir -p /home/e-wallet
 
 # Add the final image into the
-ADD ./bo-vexios-gateway.jar /home/vexiosci
+ADD ./wallet-gateway.jar /home/e-wallet
 
 # Change directory so that our commands run inside this new directory
-WORKDIR /home/vexiosci
+WORKDIR /home/e-wallet
     
-VOLUME ["/home/vexiosci/logs"]
+VOLUME ["/home/e-wallet/logs"]
 
-EXPOSE 8085
+EXPOSE 7070
 
-ENTRYPOINT ["java", "-jar", "-Dloader.path=/home/vexiosci/conf,/home/vexiosci", "/home/vexiosci/bo-vexios-gateway.jar"]
+ENTRYPOINT ["java", "-jar", "/home/e-wallet/wallet-gateway.jar"]

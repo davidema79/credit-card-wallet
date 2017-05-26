@@ -1,26 +1,13 @@
-#############################################################################################################################
-# The following is an example of the docker-compose.yml file that we are using in the project.                              #
-# This file is located on the bidlotto-staging server in /home/vexiosci/docker-compose.yml                                  #
-# To run this file run the following commands                                                                               #
-#     - cd /home/vexiosci                                                                                                   #
-#     - docker-compose down // To remove and delete current containers                                                      #
-#     - docker-compose up -d // To create the new docker containers                                                         #
-#                                                                                                                           #
-# And viola' you should now have 2 new containers running with the new images                                               #
-# P.S.: Please note that if the image is not downloaded docker-compose up -d will also pull the image from docker-registry  #
-#       ALSO REMEMBER TO CHANGE VERSION OF DOCKER IMAGE WHEN ITS NEEDED                                                     #
-#############################################################################################################################
-
 version: '2'
 services:
   bidlotto-be:
-    image: nexus.vexios.mla.local:18079/back-office/bo-vexios-gateway:<image vesrion>
+    image: davidem1979/wallet-gateway:latest
     ports:
-      - "8082:8085"
+      - "7070:7070"
     volumes:
       - "/logs:/home/vexiosci/logs"    
   bidlotto-fe:
-    image: nexus.vexios.mla.local:18079/back-office/bo-vexios-gateway:<image-version>
+    image: davidem1979/wallet-web:latest
     ports:
       - "4200:4200"
       - "80:4200"
