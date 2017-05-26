@@ -24,8 +24,11 @@ public class CreditCard {
 	@Column(name= "card_number")
 	private String cardNumber;
 
-	@Column(name="date_exp")
-	private String dateExp;
+	@Column(name="month_exp")
+	private Integer dateExpMonth;
+	
+	@Column(name="year_exp")
+	private Integer dateExpYear;
 	
 	@Column(name="user_id")
 	private Long userId;
@@ -36,13 +39,6 @@ public class CreditCard {
 	public CreditCard() {
 	}
 	
-	public CreditCard(final String cardNumber, final String dateExp, final Long userId, final String nameHolder) {
-		this.cardNumber = cardNumber;
-		this.dateExp = dateExp;
-		this.userId = userId;
-		this.nameHolder = nameHolder;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -59,12 +55,20 @@ public class CreditCard {
 		this.cardNumber = cardNumber;
 	}
 
-	public String getDateExp() {
-		return dateExp;
+	public Integer getDateExpMonth() {
+		return dateExpMonth;
 	}
 
-	public void setDateExp(String dateExp) {
-		this.dateExp = dateExp;
+	public void setDateExpMonth(Integer dateExpMonth) {
+		this.dateExpMonth = dateExpMonth;
+	}
+
+	public Integer getDateExpYear() {
+		return dateExpYear;
+	}
+
+	public void setDateExpYear(Integer dateExpYear) {
+		this.dateExpYear = dateExpYear;
 	}
 
 	public Long getUserId() {

@@ -11,21 +11,26 @@
 	<artifactId>wallet-security</artifactId>
 
 	<dependencies>
+
+		<!-- Project Modules -->
 		<dependency>
 			<groupId>eu.davidem.wallet</groupId>
 			<artifactId>wallet-persistence</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
+		<!-- Apache Libraries -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
+		<!-- Others -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>

@@ -15,7 +15,8 @@ public final class CreditCardMapper {
 	public final static CreditCard mapToRestTO(final eu.davidem.wallet.persistence.entities.CreditCard entity){
 		return new CreditCard()
 				.setCardNumber(entity.getCardNumber())
-				.setDateExp(entity.getDateExp())
+				.setDateExpMonth(entity.getDateExpMonth())
+				.setDateExpYear(entity.getDateExpYear())
 				.setId(entity.getId())
 				.setNameHolder(entity.getNameHolder());
 	}

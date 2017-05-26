@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CreditCard} from "../credit-card.model";
-import {CreditCardsService} from "../credit-cards.service";
+import {CreditCard} from "./credit-card.model";
+import {CreditCardsService} from "../credit-cards-list/credit-cards.service";
 
 @Component({
   selector: 'app-credit-card-details',
@@ -14,6 +14,7 @@ export class CreditCardDetailsComponent implements OnInit {
   @Output('editCreditCard') creditCardEmitter = new EventEmitter<CreditCard>();
 
   public editMode: boolean;
+  private oldValue: CreditCard;
 
   constructor(private _creditCardService: CreditCardsService) { }
 
@@ -23,6 +24,7 @@ export class CreditCardDetailsComponent implements OnInit {
 
   editCreditCard() {
     this.editMode = true;
+    this.oldValue = this.creditCard;
   }
 
   saveCreditCard() {
@@ -34,5 +36,18 @@ export class CreditCardDetailsComponent implements OnInit {
               this.creditCard = data;
             }
         );
+  }
+
+  cancelEdit() {
+    this.editMode = false;
+    this.creditCard = this.oldValue;
+  }
+
+
+  get isRangeInvalid(): boolean {
+    const part1 = this.creditCard.dateExpMonth > 12 || this.creditCard.dateExpMonth < 1;
+    const part2 = this.creditCard.dateExpYear > 99 || this.creditCard.dateExpYear < 17;
+
+    return part1 || part2;
   }
 }

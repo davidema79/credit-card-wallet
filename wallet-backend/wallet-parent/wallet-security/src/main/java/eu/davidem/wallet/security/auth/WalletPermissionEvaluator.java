@@ -26,8 +26,8 @@ public class WalletPermissionEvaluator implements PermissionEvaluator {
 			Object permission) {
 		final String permissionString = (String) permission;
 		
-		if (permissionString != "CREDIT_CARD" ) {
-			// Not an expected permission request
+		if (!permissionString.equals("CREDIT_CARD") ) {
+			// Not an expected type of permission request
 			return false;
 		}
 		

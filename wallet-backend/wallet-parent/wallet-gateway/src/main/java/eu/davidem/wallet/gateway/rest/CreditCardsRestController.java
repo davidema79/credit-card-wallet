@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import eu.davidem.wallet.exceptions.ResourceNotFoundException;
 import eu.davidem.wallet.gateway.rest.to.CreditCard;
 import eu.davidem.wallet.gateway.rest.to.CreditCardMapper;
+import eu.davidem.wallet.security.config.SecurityContextHolderUtils;
 import eu.davidem.wallet.services.CreditCardPersistenceService;
 
 /**
@@ -34,7 +37,7 @@ public class CreditCardsRestController {
 	 */
 	@GetMapping()
 	public List<CreditCard> getAll() {
-		return this.cardPersistenceService.getAll(1).stream()
+		return this.cardPersistenceService.getAll(SecurityContextHolderUtils.getCurrentUserId()).stream()
 				.map( itemCC -> {return CreditCardMapper.mapToRestTO(itemCC);})
 				.collect(Collectors.toList());
 	}
@@ -47,10 +50,31 @@ public class CreditCardsRestController {
 	 *            - id of the wanted credit card.
 	 * 
 	 */
-	@PreAuthorize("hasPermission(#id, 'CREDIT_CARD', 'READ')")
+	@PreAuthorize("hasPermission(#id, 'CREDIT_CARD')")
 	@GetMapping("/{id}")
-	public String getOneById(@PathVariable("id") long id) {
-		return "getOneById: " + id;
+	public CreditCard getOneById(@PathVariable("id") long id) {
+		final eu.davidem.wallet.persistence.entities.CreditCard cc = this.cardPersistenceService.getOne(id);
+		
+		if(cc == null) {
+			throw new ResourceNotFoundException("Credit Card Not Found. Id: " + id);
+		}
+		
+		return CreditCardMapper.mapToRestTO(cc);
+	}
+	
+	/**
+	 * Returns the credit card with the given {@code id}, only if it belongs to
+	 * the current logged user.
+	 * 
+	 * @param id
+	 *            - id of the wanted credit card.
+	 * 
+	 */
+	@GetMapping("/search")
+	public List<CreditCard> searchByNumber(@RequestParam("number") final String number) {
+		return this.cardPersistenceService.getAllWithNumber(number).stream()
+				.map( itemCC -> {return CreditCardMapper.mapToRestTO(itemCC);})
+				.collect(Collectors.toList());
 	}
 
 	/**
@@ -58,10 +82,9 @@ public class CreditCardsRestController {
 	 * 
 	 * @param cc
 	 */
-	@PreAuthorize("hasPermission(#cc.id, 'CREDIT_CARD', 'SAVE')")
+	@PreAuthorize("hasPermission(#creditCard.id, 'CREDIT_CARD')")
 	@PostMapping("/save")
-	public String save(@RequestBody long cc) {
-//		CreditCardValidator.VISA;
-		return "save " + cc ;
+	public CreditCard save(@RequestBody final CreditCard creditCard) {
+		return CreditCardMapper.mapToRestTO(this.cardPersistenceService.save(creditCard));
 	}
 }

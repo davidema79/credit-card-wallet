@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http, Headers, RequestOptions} from "@angular/http";
-import {CreditCard} from "./credit-card.model";
+import {CreditCard} from "../credit-card-details/credit-card.model";
 import {Observable} from "rxjs/Observable";
 import {environment} from "../../environments/environment";
 
@@ -34,7 +34,7 @@ export class CreditCardsService {
     args.headers = headers;
     args.withCredentials = true;
 
-    return this._http.post(this.urlApi, creditCard, args).map(
+    return this._http.post(this.urlApi + 'save', creditCard, args).map(
         data => {
           return data.json() as CreditCard;
         });

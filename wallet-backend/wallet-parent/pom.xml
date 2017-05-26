@@ -55,11 +55,17 @@
 			</dependency>
 
 			<dependency>
+				<groupId>commons-validator</groupId>
+				<artifactId>commons-validator</artifactId>
+				<version>1.6</version>
+			</dependency>
+
+			<dependency>
 				<groupId>eu.davidem.wallet</groupId>
 				<artifactId>wallet-security</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>eu.davidem.wallet</groupId>
 				<artifactId>wallet-persistence</artifactId>

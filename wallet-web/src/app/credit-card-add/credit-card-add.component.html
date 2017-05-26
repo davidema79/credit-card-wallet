@@ -1,3 +1,7 @@
+<br>
+<br>
+<br>
+
 <div class="row align-content-center justify-content-center">
 
     <div *ngIf="error" class="alert alert-danger">
@@ -24,7 +28,7 @@
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon2"><i class="fa fa-credit-card prefix"></i></span>
             <span class="input-group-addon">Number</span>
-            <input type="password" class="form-control" [ngClass]="isNumberInvalid ? 'invalid' : 'valid' "
+            <input type="text" class="form-control" [ngClass]="isNumberInvalid ? 'invalid' : 'valid' "
                    id="number-text" formControlName="number" placeholder="Insert number">
         </div>
 
@@ -35,10 +39,12 @@
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon" id="basic-addon3"><i class="fa fa-lock prefix"></i></span>
+            <!--<span class="input-group-addon" id="basic-addon3"><i class="fa fa-lock prefix"></i></span>-->
             <span class="input-group-addon">Exp. Date</span>
-            <input type="password" class="form-control" [ngClass]="isDateInvalid ? 'invalid' : 'valid' "
-                   id="pwd-text" formControlName="expDate" placeholder="mm/yy">
+            <input type="text" class="form-control" [ngClass]="isDateInvalid ? 'invalid' : 'valid' "
+                   id="dateExpMonth-text" formControlName="dateExpMonth" placeholder="mm">
+          <input type="text" class="form-control" [ngClass]="isDateInvalid ? 'invalid' : 'valid' "
+                 id="dateExpYear-text" formControlName="dateExpYear" placeholder="yy">
         </div>
 
     </form>
@@ -46,7 +52,7 @@
 </div>
 
 <div class="row align-baseline justify-content-end">
-    <button type="button" class="btn btn-primary" (click)="OnSave()" [disabled]="signupForm.invalid">Save
+    <button type="button" class="btn btn-primary" (click)="OnSave()" [disabled]="creditCardForm.invalid">Save
     </button>
     <button type="button" class="btn btn-outline-primary" data-dismiss="modal" routerLink="/credit-cards"
             routerLinkActive="active-link">Cancel
