@@ -22,6 +22,7 @@
 			<artifactId>wallet-persistence</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Starters -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -33,9 +34,11 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+		<!-- Apache Libraries -->
+
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
 		</dependency>
 
 		<dependency>
@@ -43,10 +46,16 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.boot</groupId> -->
-<!-- 			<artifactId>spring-boot-starter-velocity</artifactId> -->
-<!-- 		</dependency> -->
+		<!-- Others -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+
+		<!-- Tests -->
+
+
 	</dependencies>
 
 	<build>
@@ -55,10 +64,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-<!-- 			DOCKER -->
-			
+
+			<!-- DOCKER -->
+
 		</plugins>
 	</build>
-	
+
 </project>

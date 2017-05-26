@@ -6,26 +6,26 @@ package eu.davidem.wallet.persistence.exceptions;
  * @author Davide Martorana
  *
  */
-public class UsernameAlredyExists extends RuntimeException {
+public class UsernameAlredyExistsException extends RuntimeException {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5673842100264184925L;
 
-	public UsernameAlredyExists() {
+	public UsernameAlredyExistsException() {
 		super();
 	}
 
-	public UsernameAlredyExists(String message, Throwable cause) {
+	public UsernameAlredyExistsException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public UsernameAlredyExists(String message) {
+	public UsernameAlredyExistsException(String message) {
 		super(message);
 	}
 
-	public UsernameAlredyExists(Throwable cause) {
+	public UsernameAlredyExistsException(Throwable cause) {
 		super(cause);
 	}
 

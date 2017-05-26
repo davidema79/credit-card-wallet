@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import eu.davidem.wallet.persistence.entities.Role;
 import eu.davidem.wallet.persistence.entities.User;
-import eu.davidem.wallet.persistence.exceptions.UsernameAlredyExists;
+import eu.davidem.wallet.persistence.exceptions.UsernameAlredyExistsException;
 import eu.davidem.wallet.persistence.repos.UsersRepository;
 
 /**
@@ -40,7 +40,7 @@ public class UserPersistenceService {
 			return this.userRespository.saveAndFlush(user);
 		} catch (final DataIntegrityViolationException e) {
 			LOGGER.info("Username '{}' already in the database.", username);
-			throw new UsernameAlredyExists("Username exits. Please, choose another one.", e);
+			throw new UsernameAlredyExistsException("Username exits. Please, choose another one.", e);
 		}
 	}
 }

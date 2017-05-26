@@ -40,7 +40,7 @@ public class UserDetailsPersistenceService {
 		final List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority(user.getRole()));
 		
-		return new WalletUserDetails(username, user.getPassword(), authorities);
+		return new WalletUserDetails(user.getId(), username, user.getPassword(), authorities);
 	}
 	
 }

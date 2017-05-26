@@ -18,27 +18,27 @@ import javax.persistence.Table;
 public class CreditCard {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name= "card_number")
 	private String cardNumber;
 
-	@Column(name="date_exp")
-	private String dateExp;
+	@Column(name="month_exp")
+	private Integer dateExpMonth;
+	
+	@Column(name="year_exp")
+	private Integer dateExpYear;
 	
 	@Column(name="user_id")
 	private Long userId;
+	
+	@Column(name="name_holder")
+	private String nameHolder;
 
 	public CreditCard() {
 	}
 	
-	public CreditCard(final String cardNumber, final String dateExp, final Long userId) {
-		this.cardNumber = cardNumber;
-		this.dateExp = dateExp;
-		this.userId = userId;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -55,12 +55,20 @@ public class CreditCard {
 		this.cardNumber = cardNumber;
 	}
 
-	public String getDateExp() {
-		return dateExp;
+	public Integer getDateExpMonth() {
+		return dateExpMonth;
 	}
 
-	public void setDateExp(String dateExp) {
-		this.dateExp = dateExp;
+	public void setDateExpMonth(Integer dateExpMonth) {
+		this.dateExpMonth = dateExpMonth;
+	}
+
+	public Integer getDateExpYear() {
+		return dateExpYear;
+	}
+
+	public void setDateExpYear(Integer dateExpYear) {
+		this.dateExpYear = dateExpYear;
 	}
 
 	public Long getUserId() {
@@ -69,6 +77,14 @@ public class CreditCard {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public String getNameHolder() {
+		return nameHolder;
+	}
+
+	public void setNameHolder(String nameHolder) {
+		this.nameHolder = nameHolder;
 	}
 	
 	

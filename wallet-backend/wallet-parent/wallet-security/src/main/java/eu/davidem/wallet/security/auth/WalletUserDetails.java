@@ -17,10 +17,16 @@ public class WalletUserDetails extends User {
 	 * 
 	 */
 	private static final long serialVersionUID = -3751263893746909312L;
+	
+	private final long id;
 
-	public WalletUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+	public WalletUserDetails(final long id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, authorities);
+		this.id = id;
 	}
 
+	public long getId() {
+		return this.id;
+	}
 	
 }

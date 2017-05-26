@@ -1,0 +1,58 @@
+<br>
+<br>
+<div class="card col-10 offset-1">
+
+  <div class="card-header">
+    <h4><span><i class="fa fa-search fa-1x"></i> Search Credit Card</span></h4>
+  </div>
+
+  <div class="card-block">
+    <div class="row col-8 offset-2">
+      <div class="input-group">
+        <input type="text" class="form-control" pattern="[0-9]{0,16}" placeholder="Search for..." [(ngModel)]="searchParam">
+        <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" (click)="searchCreditCards()">Go!</button>
+      </span>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div *ngIf="creditCardList && creditCardList.length > 0" class="row justify-content-center">
+
+  <div class="col-10">
+
+      <table class="table table-striped table-bordered col-10">
+        <thead class="row">
+          <th class="col-4">
+            CARD HOLDER NAME
+          </th>
+          <th class="col-4">
+            NUMBER
+          </th>
+          <th class="col-2">
+            EXP. MM/YY
+          </th>
+          <th class="col-2">
+
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let creditItem of creditCardList">
+            <app-credit-card-details [creditCard]="creditItem"
+                                   (editCreditCard)="loadCreditCards()"></app-credit-card-details>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+</div>
+
+<div class="row justify-content-center">
+
+  <div *ngIf="isEmptyResult" class="alert alert-info">
+    <p>No credit card retrieved.</p>
+  </div>
+
+</div>

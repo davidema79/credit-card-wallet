@@ -12,7 +12,11 @@ public class CreditCard {
 	
 	private String cardNumber;
 
-	private String dateExp;
+	private Integer dateExpMonth;
+	
+	private Integer dateExpYear;
+	
+	private String nameHolder;
 
 	public Long getId() {
 		return id;
@@ -32,12 +36,32 @@ public class CreditCard {
 		return this;
 	}
 
-	public String getDateExp() {
-		return dateExp;
+	
+
+	public Integer getDateExpMonth() {
+		return dateExpMonth;
 	}
 
-	public CreditCard setDateExp(String dateExp) {
-		this.dateExp = dateExp;
+	public CreditCard setDateExpMonth(Integer dateExpMonth) {
+		this.dateExpMonth = dateExpMonth;
+		return this;
+	}
+
+	public Integer getDateExpYear() {
+		return dateExpYear;
+	}
+
+	public CreditCard setDateExpYear(Integer dateExpYear) {
+		this.dateExpYear = dateExpYear;
+		return this;
+	}
+
+	public String getNameHolder() {
+		return nameHolder;
+	}
+
+	public CreditCard setNameHolder(String nameHolder) {
+		this.nameHolder = nameHolder;
 		return this;
 	}
 	
