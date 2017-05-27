@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import eu.davidem.wallet.exceptions.ResourceNotFoundException;
 import eu.davidem.wallet.gateway.rest.to.CreditCard;
 import eu.davidem.wallet.gateway.rest.to.CreditCardMapper;
-import eu.davidem.wallet.security.config.SecurityContextHolderUtils;
 import eu.davidem.wallet.services.CreditCardPersistenceService;
 
 /**
@@ -37,7 +36,7 @@ public class CreditCardsRestController {
 	 */
 	@GetMapping()
 	public List<CreditCard> getAll() {
-		return this.cardPersistenceService.getAll(SecurityContextHolderUtils.getCurrentUserId()).stream()
+		return this.cardPersistenceService.getAll().stream()
 				.map( itemCC -> {return CreditCardMapper.mapToRestTO(itemCC);})
 				.collect(Collectors.toList());
 	}

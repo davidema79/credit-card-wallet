@@ -17,13 +17,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
 		<!-- MySQL Drivers -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
@@ -34,14 +34,26 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-tools</artifactId>
 		</dependency>
-		
+
 		<!-- Apache Libraries -->
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
-		
-	</dependencies>
 
+		<!-- Tests -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
 </project>

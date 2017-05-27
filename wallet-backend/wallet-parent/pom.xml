@@ -113,6 +113,9 @@
 					<artifactId>maven-failsafe-plugin</artifactId>
 					<executions>
 						<execution>
+						<configuration>
+						
+						</configuration>
 							<goals>
 								<goal>integration-test</goal>
 								<goal>verify</goal>
@@ -145,6 +148,10 @@
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
