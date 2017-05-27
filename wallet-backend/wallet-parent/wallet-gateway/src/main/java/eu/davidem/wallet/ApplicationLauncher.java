@@ -1,12 +1,23 @@
-package eu.davidem.wallet.gateway;
+package eu.davidem.wallet;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
+import eu.davidem.wallet.config.ApplicationConfig;
+
+/**
+ * Application Starter. 
+ * 
+ * 
+ * @author Davide Martorana
+ *
+ */
 @SpringBootApplication
+@Import({ApplicationConfig.class})
 public class ApplicationLauncher {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationLauncher.class);
 

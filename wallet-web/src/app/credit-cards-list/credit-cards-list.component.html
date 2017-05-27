@@ -1,0 +1,30 @@
+<br>
+<br>
+<div class="row">
+  <div class="card col-10 offset-1">
+
+    <div class="card-header">
+      <h4><span><i class="fa fa-credit-card"></i> Credit Cards List</span></h4>
+    </div>
+
+    <div class="card-block">
+      <div *ngFor="let creditItem of creditCardList">
+        <app-credit-card-details [creditCard]="creditItem" (editCreditCard)="loadCreditCards()"></app-credit-card-details>
+        <span></span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row align-items-end justify-content-between">
+        <a class="btn btn-outline-primary" routerLink="/credit-cards/search" routerLinkActive="active-link">
+          <i class="fa fa-search"></i> Search
+        </a>
+        <a class="btn btn-primary" routerLink="/credit-cards/add" routerLinkActive="active-link">
+          <i class="fa fa-plus"></i> Add
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

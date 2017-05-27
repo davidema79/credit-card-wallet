@@ -1,0 +1,45 @@
+<div *ngIf="!editMode"  class="row align-items-center">
+  <div class="col-4">
+    {{ creditCard.nameHolder | uppercase }}
+  </div>
+  <div class="col-4">
+    {{ creditCard.cardNumber | creditCardDisplay }}
+  </div>
+  <div class="col-2">
+    {{ creditCard.dateExpMonth }}/{{ creditCard.dateExpYear }}
+  </div>
+  <div class="col-2">
+    <div class="btn-group">
+      <button class="btn btn-outline-info" (click)="editCreditCard()"><i class="fa fa-pencil"></i></button>
+      <button class="btn btn-outline-danger"  (click)="removeCreditCard()"><i class="fa fa-minus"></i></button>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="editMode" class="row">
+
+  <div class="row col-12">
+    <span class="col-5 text-right">Credit Card Holder</span>
+    <span class="col-7 text-left">{{ creditCard.nameHolder | uppercase }}</span>
+  </div>
+  <div class="row col-12">
+    <span class="col-5 text-right">Credit Card Number</span>
+    <span class="col-7 text-left">{{ creditCard.cardNumber | creditCardDisplay }}</span>
+  </div>
+  <div class="row col-12">
+    <span class="col-5 text-right">Exp. Date</span>
+    <input id="expDateMonthInput" name="expDateMonthField"  class="col-1 text-center" [(ngModel)]="creditCard.dateExpMonth">
+    <span class="text-right">/</span>
+    <input id="expDateYearInput" name="expDateYearField" class="col-1 text-center" [(ngModel)]="creditCard.dateExpYear">
+    <div class="col-5 text-left ">
+      <p class="alert alert-danger"  *ngIf="isRangeInvalid"> Values not valid: mm/yy </p>
+    </div>
+  </div>
+
+  <div class="row col-12 align-items-center justify-content-end">
+    <button class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    <span>  </span>
+    <button class="btn btn-primary" (click)="saveCreditCard()" [disabled]="isRangeInvalid"><i class="fa fa-save"></i></button>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<br>
+<br>
+<div class="card col-10 offset-1">
+
+  <div class="card-header">
+    <h4><span><i class="fa fa-credit-card"></i> Insert Credit Card</span></h4>
+  </div>
+
+  <div class="card-block">
+
+    <div class="row align-content-center justify-content-center">
+
+      <div *ngIf="error" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <form [formGroup]="creditCardForm">
+
+        <div *ngIf="isHolderInvalid" class="alert alert-danger">
+          <p>Name Holder is required. </p>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user prefix"></i></span>
+          <span class="input-group-addon">Holder Name</span>
+          <input type="text" class="form-control" [ngClass]="isHolderInvalid ? 'invalid' : 'valid' "
+                 id="name-holder" formControlName="nameHolder" name="nameHolder" placeholder="Insert Holder">
+        </div>
+        <br>
+        <div *ngIf="isNumberInvalid" class="alert alert-danger">
+
+          <p>Number not valid. Please insert again. </p>
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2"><i class="fa fa-credit-card prefix"></i></span>
+          <span class="input-group-addon">Number</span>
+          <input type="text" class="form-control" [ngClass]="isNumberInvalid ? 'invalid' : 'valid' "
+                 id="number-text" formControlName="number" placeholder="Insert number">
+        </div>
+
+        <br>
+        <div *ngIf="isDateInvalid" class="alert alert-danger">
+
+          <p>Please enter a valid value in the form 'mm/yy'</p>
+        </div>
+
+        <div class="input-group">
+          <!--<span class="input-group-addon" id="basic-addon3"><i class="fa fa-lock prefix"></i></span>-->
+          <span class="input-group-addon">Exp. Date</span>
+          <input type="text" class="form-control" [ngClass]="isDateInvalid ? 'invalid' : 'valid' "
+                 id="dateExpMonth-text" formControlName="dateExpMonth" placeholder="mm">
+          <input type="text" class="form-control" [ngClass]="isDateInvalid ? 'invalid' : 'valid' "
+                 id="dateExpYear-text" formControlName="dateExpYear" placeholder="yy">
+        </div>
+
+      </form>
+
+    </div>
+
+    <p></p>
+
+    <div class="row align-baseline justify-content-end">
+      <button type="button" class="btn btn-primary" (click)="OnSave()" [disabled]="creditCardForm.invalid">Save
+      </button>
+      <button type="button" class="btn btn-outline-primary" data-dismiss="modal" routerLink="/credit-cards"
+              routerLinkActive="active-link">Cancel
+      </button>
+    </div>
+
+  </div>
+</div>

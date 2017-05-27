@@ -1,0 +1,25 @@
+package eu.davidem.wallet.security.auth.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+/**
+ * Custom implementation for the user details service
+ * 
+ * @author Davide Martorana
+ *
+ */
+@Service
+public class WalletUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	private UserDetailsPersistenceService service;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		return service.findUserDetailsByUsername(username);
+	}
+}
