@@ -1,23 +1,7 @@
-# Create image based on the official Node boron or 6.9.4 image from dockerhub
-FROM node:boron
+# Create image based on the official nginx
+FROM nginx
 
-# Create a directory where our app will be placed
-RUN mkdir -p /usr/src/app
-
-# Change directory so that our commands run inside this new directory
-WORKDIR /usr/src/app
-
-# Copy dependency definitions
-COPY package.json /usr/src/app
-
-# Install dependecies
-RUN npm install
-
-# Get all the code needed to run the app
-COPY . /usr/src/app
+COPY dist /usr/share/nginx/html
 
 # Expose the port the app runs in
-EXPOSE 4200
-
-# Serve the app
-CMD ["npm", "run-script", "start-prod"]
+EXPOSE 80

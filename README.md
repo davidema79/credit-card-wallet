@@ -17,6 +17,15 @@ Move into `wallet-backend/wallet-parent/` and build with the command:
 It will execute the tests and generate an executable **fat** jar.
 
 ### How to Execute
+
+#### Setup the DataBase
+
+Before to launch the executable file, you need to setup the database. This project uses MySQL to persist the data. 
+
+In order to create the database and the tables, please execute the .sql script `wallet-backend/ewallet-script.sql` 
+
+#### Execute the Jar
+
 Move into the folder `wallet-backend/wallet-parent/wallet-gateway/target`, there you will find an executable .jar file: `wallet-gateway.jar`.
 
 Launch it with the usual java command:
@@ -52,6 +61,24 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+### Docker Image
+If you want to create a docker image, after you built the project, you need to execute:
+```shell
+    docker build -t <name of the image> .
+```
+
+The Dockerfile contained in the project will create a new docker image based on Nginx
+
+### Run Docker container
+After the image was created, you can deploy it with the command:
+
+```shell
+    docker run --name wallet-web-first -d -p80:80 <name of the image>
+```
+
+Now open your web browser at [http://localhost/](http://localhost/). 
+
+**Please note** that till you don't deploy the backend you will be able to see the web application, but you cannot login. 
 
 ### Further help
 
