@@ -19,6 +19,7 @@ import {CreditCardsService} from "./credit-cards-list/credit-cards.service";
 import { CreditCardDisplayPipe } from './credit-cards-list/credit-card-display.pipe';
 import { CreditCardAddComponent } from './credit-card-add/credit-card-add.component';
 import { CreditCardSearchComponent } from './credit-card-search/credit-card-search.component';
+import { TopNavigatorComponent } from './top-navigator/top-navigator.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { CreditCardSearchComponent } from './credit-card-search/credit-card-sear
         HomeComponent,
         CreditCardDisplayPipe,
         CreditCardAddComponent,
-        CreditCardSearchComponent
+        CreditCardSearchComponent,
+        TopNavigatorComponent
     ],
     imports: [
         BrowserModule,
