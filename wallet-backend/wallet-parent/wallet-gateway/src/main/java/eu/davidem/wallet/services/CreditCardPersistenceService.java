@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.commons.validator.routines.CreditCardValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import eu.davidem.wallet.persistence.entities.CreditCard;
@@ -25,15 +26,14 @@ public class CreditCardPersistenceService {
 	private static CreditCardValidator CC_VALIDATOR = new CreditCardValidator();
 
 	/**
-	 * Get all the credit cards that belong to the User with the given
-	 * {@code id}
+	 * Get all the credit cards that belong to the User in the
+	 * {@link SecurityContextHolder} (currently logged user)
 	 * 
-	 * @param userId
-	 *            - ID of the user we want to get the credit cards of.
 	 * @return a list of Credit Card. The list could be empty, but never
 	 *         <code>null</code>.
 	 */
-	public List<CreditCard> getAll(final long userId) {
+	public List<CreditCard> getAll() {
+		final long userId = SecurityContextHolderUtils.getCurrentUserId();
 		return this.repository.findAllByUserId(userId);
 	}
 
