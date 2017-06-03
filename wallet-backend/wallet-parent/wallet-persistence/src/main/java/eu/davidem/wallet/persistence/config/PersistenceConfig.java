@@ -40,7 +40,6 @@ public class PersistenceConfig {
 		return builder
 				.dataSource(dataSource)
 				.packages(CreditCard.class)
-				.persistenceUnit("bidlotto")
 				.build();
 	}
 
