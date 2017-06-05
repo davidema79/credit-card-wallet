@@ -44,7 +44,7 @@ public class PersistenceConfig {
 	}
 
 	@Bean
-	public PlatformTransactionManager transactionManager(EntityManagerFactory bidlottoEntityManagerFactory) {
-		return new JpaTransactionManager(bidlottoEntityManagerFactory);
+	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+		return new JpaTransactionManager(entityManagerFactory);
 	}
 }
